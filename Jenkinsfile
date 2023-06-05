@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Publishing....'
                 sh 'docker tag amihai amihai.jfrog.io/docker/amihai'
-                sh 'docker login -u "${RT_USER}" -p "${RT_PASS}" "${RT_SRV}"'
+                sh 'docker login -u amihai.levi81@gmail.com -p Hardwork1 amihai.jfrog.io'
                 sh 'docker push amihai.jfrog.io/docker/amihai'
                 echo 'The image is published.'
             }
