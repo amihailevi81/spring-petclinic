@@ -89,23 +89,35 @@ There are pre-request package to install in the host before we can start:
 ## To compile,run and test the project locally
 
 ### Clone git repo
+```
 git clone https://github.com/spring-projects/spring-petclinic
+```
 
 ### Instsall dependencies
+```
 ./mvnw dependency:resolve
+```
 > please check that all the dependencies are download from Maven central
 
 ### Compile the code
+```
 ./mvnw compile
+```
 
 ### Run the tests
+```
 ./mvnw test
+```
 
 ### Package the application
+```
 ./mvnw package
+```
 
 ### Run the application
+```
 java -jar target/*.jar
+```
 
 <br>
 
@@ -122,28 +134,28 @@ After we check that the app is running without errors then we can create Docker 
 Here is the Dockerfile content:
 
 ```
-ROM openjdk:17
+FROM openjdk:17
 RUN mkdir /build
 WORKDIR /build
 COPY ./target .
 CMD ["java", "-jar", "spring-petclinic-3.1.0-SNAPSHOT.jar"]
 ```
 <br>
-The next step would be building the Docker Image.
+Building the Docker Image.
 
 ```
-docker build . -t "ImageName"
+docker build . -t "amihaipet"
 ```
 <br>
-Now let's test it 
+Test the image
 
 ```
-docker run -p 80:8080 ImageName
+docker run -p 80:8080 amihaipet
 ```
 
-> NOTE: PetClinic is using tcp port 8080 by default.  
-> Jenkins is running on my machine and uses tcp port 8080.   
-> I used `-p 80:8080` to map tcp port 80 of my machine to tcp port 8080 of the container
+> NOTE: Because the app and Jenkins run on the same TCP port 8080  
+> 
+> I used -p 80:8080 to manipulate and map tcp port 80 (my machine) to tcp port 8080 of the container
 ---
 
 <br><br>
