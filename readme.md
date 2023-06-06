@@ -86,7 +86,7 @@ There are pre-request package to install in the host before we can start:
 ```
 <br>
 
-## To compile,run and test the project locally
+## Compile,run and test the project locally
 
 ### Clone git repo
 ```
