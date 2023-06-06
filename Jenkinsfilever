@@ -4,7 +4,7 @@ pipeline {
         Artifactory_Repo = 'docker'
         Artifactory_Username = credentials('username')
         Artifactory_Password = credentials('password')
-        Artifactory_SRV = 'amihai.jfrog.io'
+        Artifactory_Server = 'amihai.jfrog.io'
         Image_Name = 'amihaipet'
     }
     stages {
@@ -32,7 +32,7 @@ pipeline {
         stage('Publish') {
             steps {
                 echo 'Publishing....'
-                sh 'docker tag "${Image_Name}" "${Artifactory_SRV}"/"${Artifactory_Repo}"/"${Image_Name}"'
+                sh 'docker tag "${Image_Name}" "${Artifactory_Server}"/"${Artifactory_Repo}"/"${Image_Name}"'
                 sh 'docker login -u "${Artifactory_Username}" -p "${Artifactory_Password}" "${Artifactory_SRV}"'
                 sh 'docker push "${Artifactory_SRV}"/"${Artifactory_Repo}"/"${Image_Name}"'
                 echo 'The image is published.'
