@@ -208,7 +208,7 @@ Some of the varibles are clean test and the Username/Password that are secret yo
 Artifactory_Repo = 'docker'
 Artifactory_Username = credentials('username')
 Artifactory_Password = credentials('password')
-Artifactory_SRV = 'amihai.jfrog.io'
+Artifactory_Server = 'amihai.jfrog.io'
 Image_Name = 'amihaipet'
 ```
 > Note: You need to modify the jenkins user permissions to run docker commands.   
@@ -221,7 +221,7 @@ Image_Name = 'amihaipet'
 
 ## Manualy pushing the Image to Artifactory
 
-Let's push the image.
+Push the image.
 > Note:  For this step you will need a Jfrog Artifactory server. I used the cloud version of Jfrog Artifactory.
 
 > Note:  Make sure you have the necessary permissions to upload files to Jfrog Artifactory.
