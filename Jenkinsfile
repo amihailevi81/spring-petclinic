@@ -5,7 +5,7 @@ pipeline {
         RT_USER =       credentials('username')
         RT_PASS =       credentials('password')
         RT_TRG_REPO =   'default-docker'
-        IMG_NAME =      'amihai'
+        IMG_NAME =      'amihaipet'
     }
     stages {
         stage('Compile') {
@@ -25,7 +25,7 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Start Docker Package'
-                sh 'docker build -t amihaipet .'
+                sh 'docker build . -t ""${IMG_NAME}""'
                 echo 'Docker Image is ready!'
             }
         }
