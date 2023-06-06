@@ -164,36 +164,19 @@ docker run -p 80:8080 amihaipet
 
 <br>
 
-The Jenkinsfile is made out of two major section, Environment and Stages.
+ Jenkinsfile have two  section Stages and Environment.
 
 <br>
-
-### Environment
-
-<br>
-
-The Environment section contains all the necesary variables which will be used in the following stages
-
-Some variables are clear text, which can be directly edited according to your environment. Others are secrets that must be configured as Jenkins credentials.
-
-```
-RT_SRV =        'myRTtenant.jfrog.io'
-RT_USER =       credentials('rtuser')
-RT_PASS =       credentials('rtpass')
-RT_TRG_REPO =   'MyDockerRepo'
-IMG_NAME =      'ImageName'
-```
 
 ### Stages
 
-The stages part defines the stages in our pipeline and uses the variables defined in the Environment section.
+The stages part defines the stages in the pipeline .
 
-My pipeline contains the following stages:
+The pipeline contains the following stages:
 
 ## Compile
 
-Will compile the code while using the most updated releases and snapshots on remote repositories, will skip any tests and remove previously compiled code
-
+Will compile the code 
 <br>
 
 ## Test
@@ -203,16 +186,38 @@ Will test the compiled code.
 <br>
 
 ## Package
-
-This stage will build the Docker Image (Using the Dockerfile described above)
+Build the Docker Image 
 
 <br>
 
 ## Publish
 
-Will tag the Docker Image and push is to Artifactory.
+Tag the Docker Image and push is to Artifactory.
 
 <br>
+
+### Environment
+
+<br>
+
+The Environment  contains variables which will be used in the stage
+
+Some of the varibles are clean test and the Username/Password that are secret you need to config it in the Jenkins
+
+```
+Artifactory_Repo = 'docker'
+Artifactory_Username = credentials('username')
+Artifactory_Password = credentials('password')
+Artifactory_SRV = 'amihai.jfrog.io'
+Image_Name = 'amihaipet'
+```
+> Note: You need to modify the jenkins user permissions to run docker commands.   
+>```  
+>sudo usermod -aG docker jenkins  
+>```  
+><br>
+<br>
+
 
 ## Manualy pushing the Image to Artifactory
 
@@ -269,65 +274,7 @@ You can now  access petclinic here: http://<YOUR_MACHINE_IP>
 
 ---
 
-## Working with the Jenkinsfile
 
-<br>
-
-The Jenkinsfile is made out of two major section, Environment and Stages.
-
-<br>
-
-### Environment
-
-<br>
-
-The Environment section contains all the necesary variables which will be used in the following stages
-
-Some variables are clear text, which can be directly edited according to your environment. Others are secrets that must be configured as Jenkins credentials.
-
-```
-RT_SRV =        'myRTtenant.jfrog.io'
-RT_USER =       credentials('rtuser')
-RT_PASS =       credentials('rtpass')
-RT_TRG_REPO =   'MyDockerRepo'
-IMG_NAME =      'ImageName'
-```
-
-### Stages
-
-The stages part defines the stages in our pipeline and uses the variables defined in the Environment section.
-
-My pipeline contains the following stages:
-
-## Compile
-
-Will compile the code while using the most updated releases and snapshots on remote repositories, will skip any tests and remove previously compiled code
-
-<br>
-
-## Test
-
-Will test the compiled code.
-
-<br>
-
-## Package
-
-This stage will build the Docker Image (Using the Dockerfile described above)
-
-<br>
-
-## Publish
-
-Will tag the Docker Image and push is to Artifactory.
-
-<br>
-
-## Cleanup
-
-In this stage we are removing all unused docker images from the local device.
-
----
 
 
 
