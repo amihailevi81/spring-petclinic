@@ -160,6 +160,60 @@ docker run -p 80:8080 amihaipet
 
 <br><br>
 
+## Working with the Jenkinsfile
+
+<br>
+
+The Jenkinsfile is made out of two major section, Environment and Stages.
+
+<br>
+
+### Environment
+
+<br>
+
+The Environment section contains all the necesary variables which will be used in the following stages
+
+Some variables are clear text, which can be directly edited according to your environment. Others are secrets that must be configured as Jenkins credentials.
+
+```
+RT_SRV =        'myRTtenant.jfrog.io'
+RT_USER =       credentials('rtuser')
+RT_PASS =       credentials('rtpass')
+RT_TRG_REPO =   'MyDockerRepo'
+IMG_NAME =      'ImageName'
+```
+
+### Stages
+
+The stages part defines the stages in our pipeline and uses the variables defined in the Environment section.
+
+My pipeline contains the following stages:
+
+## Compile
+
+Will compile the code while using the most updated releases and snapshots on remote repositories, will skip any tests and remove previously compiled code
+
+<br>
+
+## Test
+
+Will test the compiled code.
+
+<br>
+
+## Package
+
+This stage will build the Docker Image (Using the Dockerfile described above)
+
+<br>
+
+## Publish
+
+Will tag the Docker Image and push is to Artifactory.
+
+<br>
+
 ## Manualy pushing the Image to Artifactory
 
 Let's push the image.
@@ -191,20 +245,6 @@ docker push myRTtenant.jfrog.io/MyDockerRepo/ImageName:latest
 
 ---
 
-## Cleanup 
-
-Before the last manual step (pulling and running the image), let's cleanup everything.
-
-```
-docker container prune 
-docker images prune -a 
-
-```
-
-
-<br>
-
----
 ## Pull the image and make it a running container
 
 Let's pull the image from our Jfrom Artifactory repo and run it.
