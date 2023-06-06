@@ -122,12 +122,11 @@ After we check that the app is running without errors then we can create Docker 
 Here is the Dockerfile content:
 
 ```
-FROM openjdk:17
-COPY . /PetClinic
-WORKDIR /PetClinic
-RUN ./mvnw -U -Dmaven.test.skip=true -T 4 clean install
-WORKDIR target
-CMD ["java", "-jar", "spring-petclinic-3.0.0-SNAPSHOT.jar" ]
+ROM openjdk:17
+RUN mkdir /build
+WORKDIR /build
+COPY ./target .
+CMD ["java", "-jar", "spring-petclinic-3.1.0-SNAPSHOT.jar"]
 ```
 <br>
 The next step would be building the Docker Image.
