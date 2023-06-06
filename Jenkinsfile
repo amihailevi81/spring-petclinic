@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                '
+    
                 sh './mvnw test'
                 echo 'Test are complete.'
             }
