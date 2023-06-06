@@ -222,7 +222,7 @@ Image_Name = 'amihaipet'
 ## Manualy pushing the Image to Artifactory
 
 Push the image.
-> Toy need to have access to Jfrog Artifactory server.I used the trail cloud version
+> You need to have access to Jfrog Artifactory server.I used the trail cloud version
 
 login to the environment  .
 ```
@@ -276,12 +276,4 @@ docker ps
 
 
 
-### References:
-[mvn Commands and Options](https://www.digitalocean.com/community/tutorials/maven-commands-options-cheat-sheet)
 
-[Using a Jenkinsfile](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/)
-
-
-[Jfrog Pushing and Pulling Images](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry#:~:text=4.9.0%22%2C%20%22targetTag%22%20%3A%20%22latest%22%7D%27-,Pushing%20and%20Pulling%20Images,-Set%20Me%20Up)
-
-[Dockerfile Commands and Variables](https://docs.docker.com/engine/reference/builder/)
