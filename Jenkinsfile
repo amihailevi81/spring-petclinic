@@ -4,7 +4,7 @@ pipeline {
         RT_SRV =        'amihai.jfrog.io'
         RT_USER =       credentials('username')
         RT_PASS =       credentials('password')
-        RT_TRG_REPO =   'default-docker'
+        RT_TRG_REPO =   'docker'
         IMG_NAME =      'amihaipet'
     }
     stages {
