@@ -222,29 +222,24 @@ Image_Name = 'amihaipet'
 ## Manualy pushing the Image to Artifactory
 
 Push the image.
-> Note:  For this step you will need a Jfrog Artifactory server. I used the cloud version of Jfrog Artifactory.
+> Toy need to have access to Jfrog Artifactory server.I used the trail cloud version
 
-> Note:  Make sure you have the necessary permissions to upload files to Jfrog Artifactory.
-
-In my environment login is required.
+login to the environment  .
 ```
-docker login myRTtenant.jfrog.io
+docker login amihai.jfrog.io
 ```
-Enter you credentials.
-
-Once you get `Login Succeeded`, you can continue with the Push command.
-
-Before that, you must tag the Image
+Before push, you must tag the Image
 
 ```
-docker tag ImageName myRTtenant.jfrog.io/MyDockerRepo/ImageName:latest
+docker tag amihaipet amihai.jfrog.io/docker/amihaipet
 ```
 
 <br>
-Now let's push it
+
+ push Image to Artifactory
 
 ```
-docker push myRTtenant.jfrog.io/MyDockerRepo/ImageName:latest
+docker push amihai.jfrog.io/docker/amihaipet
 ```
 <br>
 
@@ -252,23 +247,21 @@ docker push myRTtenant.jfrog.io/MyDockerRepo/ImageName:latest
 
 ## Pull the image and make it a running container
 
-Let's pull the image from our Jfrom Artifactory repo and run it.
+ pull the image from m Artifactory repo and run it.
 
 ```
-docker run -d -p 80:8080 myRTtenant.jfrog.io/MyDockerRepo/ImageName:latest
+docker run -d -p 80:8080 amihai.jfrog.io/docker/amihaipet
 ```
 
-> Note: Since we purged all the images previously created, The image will be automatically pulled.
+> Note:  Make sure you have the necessary permissions to pull files from  Artifactory.
 
 <br>
 
-Verify the container is up 
+Verify  container is up 
 
 ```
 docker ps
 ```
-
-You can now  access petclinic here: http://<YOUR_MACHINE_IP>
 
 <br>
 
