@@ -256,6 +256,13 @@
 
   <repositories>
     <repository>
+        <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+    </repository>
+    <!-- <repository>
       <id>spring-snapshots</id>
       <name>Spring Snapshots</name>
       <url>https://repo.spring.io/snapshot</url>
@@ -270,11 +277,18 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-    </repository>
+    </repository> -->
   </repositories>
 
   <pluginRepositories>
     <pluginRepository>
+      <id>central</id>
+        <url>https://repo.maven.apache.org/maven2</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+    </pluginRepository>
+    <!-- <pluginRepository>
       <id>spring-snapshots</id>
       <name>Spring Snapshots</name>
       <url>https://repo.spring.io/snapshot</url>
@@ -289,7 +303,7 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-    </pluginRepository>
+    </pluginRepository> -->
   </pluginRepositories>
 
   <profiles>
