@@ -219,7 +219,7 @@ Image_Name = 'amihaipet'
 <br>
 
 
-## Manualy pushing the Image to Artifactory
+## Push the Image to Artifactory
 
 Push the image.
 > You need to have access to Jfrog Artifactory server.I used the trail cloud version
@@ -245,7 +245,7 @@ docker push amihai.jfrog.io/docker/amihaipet
 
 ---
 
-## Pull the image and make it a running container
+## Pull the image from Artifactory and running container
 
  pull the image from m Artifactory repo and run it.
 
